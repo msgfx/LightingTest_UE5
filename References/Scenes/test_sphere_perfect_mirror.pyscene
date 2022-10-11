@@ -1,0 +1,47 @@
+# Create Triangle Meshes
+quadMesh = TriangleMesh.createQuad()
+sphereMesh = TriangleMesh.createSphere()
+
+# Create Materials
+red = StandardMaterial('Red')
+red.baseColor = float4(1.0, 0.0, 0.0, 1.0)
+red.roughness = 1.0
+red.metallic = 0.0
+
+white = StandardMaterial('White')
+white.baseColor = float4(1.0, 1.0, 1.0, 1.0)
+white.roughness = 0.0
+white.metallic = 1.0
+
+# Add meshes to Scene Builder
+quadMeshID = sceneBuilder.addTriangleMesh(quadMesh, white)
+sphereMeshID = sceneBuilder.addTriangleMesh(sphereMesh, red)
+
+# Add scene graph nodes to Scene Builder
+quadNodeID = sceneBuilder.addNode('Quad', Transform(scaling=10, translation=float3(0, 0, 0), rotationEulerDeg=float3(0, 0, 0)))
+sphereNodeID = sceneBuilder.addNode('Sphere', Transform(scaling=1, translation=float3(0, 1, 0), rotationEulerDeg=float3(0, 0, 0)))
+
+# Add mesh instances to Scene Graph
+sceneBuilder.addMeshInstance(quadNodeID, quadMeshID)
+sceneBuilder.addMeshInstance(sphereNodeID, sphereMeshID)
+
+# Add environment map
+#envMap = EnvMap('LightProbes/20050806-03_hd.hdr')
+#envMap.intensity = 1.0
+#sceneBuilder.envMap = envMap
+
+# Add camera
+camera = Camera()
+camera.position = float3(0, 2.5, 8.5)
+camera.target = float3(0, 2.3, 7.5)
+camera.up = float3(0, 1, 0)
+camera.focalLength = 35.0
+sceneBuilder.addCamera(camera)
+
+# Add directional light
+dirLight = DirectionalLight('Directional light')
+#dirLight = DistantLight('Directional light')
+dirLight.intensity = float3(10, 10, 10)
+dirLight.direction = float3(0, -1, 0)
+#dirLight.angle = 0.0
+sceneBuilder.addLight(dirLight)
