@@ -26,10 +26,10 @@ Engine Users would be able to use these test scenes to verify that the lighting 
 <img src="References/Images/ue5_editor_disable_game_settings.jpg" alt="References/Images/ue5_editor_disable_game_settings.jpg" style="width:300px;"/><br>
 
 # References
-* [NVIDIA Falcor 5.2 Custom](https://github.com/msgfx/Falcor/tree/feature/user_can_build_and_execute_public_falcor_5_2) Mogwai
-  * Script Falcor\Source\Mogwai\Data\PathTracer.py
+* [NVIDIA Falcor 5.2 Custom](https://github.com/msgfx/Falcor) Mogwai
+  * Script Falcor/Source/Mogwai/Data/PathTracer.py
   * Tonemap is Linear
-* [Test Scenes: References\Scenes](References\Scenes)
+* [Test Scenes: References/Scenes](References/Scenes)
 
 # Scenes
 * Unreal Engine 5.0.3
